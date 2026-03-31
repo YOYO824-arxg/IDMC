@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#102a43"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102a43"/>
+      <stop offset="100%" stop-color="#0a1a2e"/>
+    </linearGradient>
+  </defs>
+  <text x="600" y="290" font-family="Georgia,serif" font-weight="700" font-size="96" fill="white" text-anchor="middle" letter-spacing="16">IDMC</text>
+  <rect x="480" y="320" width="240" height="3" fill="#c49a2e"/>
+  <text x="600" y="380" font-family="sans-serif" font-size="24" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="4">International Development Management Construction</text>
+</svg>

@@ -1,0 +1,116 @@
+'use client'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { NAV_LINKS } from '@/lib/constants'
+
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
+
+  useEffect(() => { setOpen(false) }, [pathname])
+
+  return (
+    <header
+      role="banner"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(16,42,67,0.10)]'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="flex flex-col" aria-label="Accueil IDMC">
+            <span className={`text-2xl font-bold tracking-wider transition-colors ${scrolled ? 'text-navy-900' : 'text-white'}`}
+              style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.12em' }}>
+              IDMC
+            </span>
+            <span className={`text-[9px] tracking-[0.25em] uppercase transition-colors ${scrolled ? 'text-navy-500' : 'text-white/60'}`}>
+              International Development
+            </span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm tracking-wide transition-colors relative group ${
+                    scrolled ? 'text-navy-700 hover:text-navy-900' : 'text-white/85 hover:text-white'
+                  } ${active ? (scrolled ? 'text-navy-900 font-semibold' : 'text-white font-semibold') : ''}`}
+                >
+                  {link.label}
+                  <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-gold-500 transition-all duration-300 ${
+                    active ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                </Link>
+              )
+            })}
+          </nav>
+
+          {/* CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link
+              href="/contact"
+              className="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-white text-sm font-semibold rounded tracking-wide transition-all duration-200 hover:shadow-lg"
+              style={{ backgroundColor: '#c49a2e' }}
+            >
+              Demander un devis
+            </Link>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className={`lg:hidden p-2 transition-colors ${scrolled ? 'text-navy-900' : 'text-white'}`}
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={open}
+          >
+            <div className="w-6 flex flex-col gap-1.5">
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+            </div>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div className={`lg:hidden bg-navy-950 transition-all duration-300 overflow-hidden ${open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <nav className="px-6 py-6 flex flex-col gap-4" aria-label="Navigation mobile">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-white/80 hover:text-white py-2 border-b border-white/10 text-sm tracking-wide transition-colors ${
+                pathname === link.href ? 'text-gold-400 font-semibold' : ''
+              }`}
+              style={{ color: pathname === link.href ? '#d4a843' : undefined }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="mt-2 px-6 py-3 text-center text-white text-sm font-semibold rounded tracking-wide"
+            style={{ backgroundColor: '#c49a2e' }}
+          >
+            Demander un devis
+          </Link>
+        </nav>
+      </div>
+    </header>
+  )
+}

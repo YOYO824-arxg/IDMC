@@ -1,0 +1,181 @@
+// ============================================================
+// CONSTANTES IDMC — Modifiez ces valeurs pour personnaliser
+// ============================================================
+
+export const COMPANY = {
+  name: 'IDMC',
+  fullName: 'International Development Management Construction',
+  tagline: 'Bâtir avec rigueur, développer avec vision.',
+  email: 'contact@idmc-group.com',
+  phone: '+225 00 00 00 00',
+  address: '01 BP 0000 — Abidjan, Côte d\'Ivoire',
+  // ← MODIFIEZ le numéro WhatsApp ici (sans + ni espaces ni tirets)
+  whatsappNumber: '22500000000',
+  whatsappMessage: 'Bonjour IDMC, je souhaite obtenir des informations sur vos services.',
+}
+
+export const WHATSAPP_URL = `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(COMPANY.whatsappMessage)}`
+
+export const NAV_LINKS = [
+  { label: 'Accueil', href: '/' },
+  { label: 'À propos', href: '/a-propos' },
+  { label: 'Services', href: '/services' },
+  { label: 'Réalisations', href: '/realisations' },
+  { label: 'Contact', href: '/contact' },
+]
+
+export const SERVICES = [
+  {
+    id: 'immobilier',
+    emoji: '🏗',
+    title: 'Immobilier',
+    shortDescription: 'Conseil, promotion et gestion de projets immobiliers résidentiels et commerciaux.',
+    description: 'IDMC accompagne ses clients dans toutes les phases de leurs projets immobiliers : de la conception à la livraison, en passant par la maîtrise d\'ouvrage déléguée, la commercialisation et la gestion d\'actifs.',
+    points: [
+      'Maîtrise d\'ouvrage déléguée',
+      'Promotion immobilière résidentielle et commerciale',
+      'Conseil en investissement immobilier',
+      'Gestion et valorisation d\'actifs',
+      'Études de faisabilité et montage financier',
+    ],
+  },
+  {
+    id: 'electrification',
+    emoji: '⚡',
+    title: 'Électrification',
+    shortDescription: 'Solutions d\'électrification rurale et urbaine, installations industrielles et réseaux.',
+    description: 'Notre pôle électrification intervient sur des projets de toutes envergures : électrification de villages, raccordements au réseau, installations industrielles et solutions énergétiques durables.',
+    points: [
+      'Électrification rurale et périurbaine',
+      'Installations électriques industrielles et tertiaires',
+      'Études et ingénierie des réseaux électriques',
+      'Énergies renouvelables (solaire, hybride)',
+      'Maintenance et exploitation d\'infrastructures',
+    ],
+  },
+  {
+    id: 'evenementiel',
+    emoji: '🎯',
+    title: 'Événementiel',
+    shortDescription: 'Organisation et production d\'événements corporates, institutionnels et professionnels.',
+    description: 'IDMC conçoit et déploie des événements sur mesure pour les entreprises et institutions : séminaires, forums, lancements de produits, cérémonies officielles et conférences professionnelles.',
+    points: [
+      'Organisation de séminaires et conférences',
+      'Lancements de produits et événements corporate',
+      'Gestion logistique de A à Z',
+      'Scénographie et communication événementielle',
+      'Événements institutionnels et officiels',
+    ],
+  },
+  {
+    id: 'formation',
+    emoji: '📚',
+    title: 'Formation Professionnelle',
+    shortDescription: 'Programmes de formation certifiants et sur mesure pour les entreprises et les individus.',
+    description: 'Notre centre de formation développe les compétences des équipes et des professionnels à travers des programmes adaptés aux enjeux du marché africain et des standards internationaux.',
+    points: [
+      'Formations techniques et managériales',
+      'Ingénierie pédagogique sur mesure',
+      'Certifications professionnelles reconnues',
+      'Coaching et accompagnement individuel',
+      'Formations continues en entreprise',
+    ],
+  },
+]
+
+export const STATS = [
+  { value: '10+', label: 'Années d\'expérience' },
+  { value: '100+', label: 'Projets accompagnés' },
+  { value: '4', label: 'Domaines d\'expertise' },
+  { value: '100%', label: 'Engagement qualité' },
+]
+
+export const WHY_IDMC = [
+  {
+    icon: '◈',
+    title: 'Expertise pluridisciplinaire',
+    description: 'Quatre pôles complémentaires pour répondre à l\'ensemble de vos besoins de développement.',
+  },
+  {
+    icon: '◎',
+    title: 'Accompagnement sur mesure',
+    description: 'Chaque projet bénéficie d\'une équipe dédiée et d\'un suivi personnalisé de la conception à la livraison.',
+  },
+  {
+    icon: '◉',
+    title: 'Exécution rigoureuse',
+    description: 'Des processus de gestion éprouvés garantissent le respect des délais, budgets et standards de qualité.',
+  },
+  {
+    icon: '◆',
+    title: 'Réactivité opérationnelle',
+    description: 'Une organisation agile et disponible pour s\'adapter aux évolutions et contraintes de vos projets.',
+  },
+  {
+    icon: '◇',
+    title: 'Vision durable',
+    description: 'Nous intégrons les enjeux environnementaux, sociaux et économiques dans chaque démarche.',
+  },
+  {
+    icon: '◐',
+    title: 'Ancrage local, standard international',
+    description: 'Une parfaite connaissance du terrain africain combinée à des méthodes de niveau international.',
+  },
+]
+
+export const PROJECTS = [
+  {
+    id: 1,
+    title: 'Résidence Les Palmiers',
+    category: 'Immobilier',
+    mission: 'Maîtrise d\'ouvrage déléguée',
+    description: 'Programme résidentiel de 48 logements en zone urbaine. Conception, suivi de chantier et commercialisation intégrale.',
+    sector: 'Résidentiel',
+    color: 'from-navy-800 to-navy-950',
+  },
+  {
+    id: 2,
+    title: 'Électrification Zone Nord',
+    category: 'Électrification',
+    mission: 'Études & Travaux',
+    description: 'Électrification de 12 villages ruraux, installation de transformateurs et raccordement au réseau national.',
+    sector: 'Infrastructure',
+    color: 'from-navy-700 to-navy-900',
+  },
+  {
+    id: 3,
+    title: 'Forum Économique Régional',
+    category: 'Événementiel',
+    mission: 'Production complète',
+    description: 'Forum international réunissant 400 participants, 30 intervenants et 15 partenaires institutionnels.',
+    sector: 'Institutionnel',
+    color: 'from-navy-800 to-navy-950',
+  },
+  {
+    id: 4,
+    title: 'Programme Leadership & Management',
+    category: 'Formation',
+    mission: 'Ingénierie pédagogique',
+    description: 'Cursus certifiant pour cadres d\'entreprise — 120 participants formés sur 6 mois.',
+    sector: 'Entreprise',
+    color: 'from-navy-700 to-navy-900',
+  },
+  {
+    id: 5,
+    title: 'Parc d\'Activités Commerciales',
+    category: 'Immobilier',
+    mission: 'Promotion & Gestion',
+    description: 'Développement d\'un parc commercial de 6 000 m² avec gestion locative et commercialisation des cellules.',
+    sector: 'Commercial',
+    color: 'from-navy-800 to-navy-950',
+  },
+  {
+    id: 6,
+    title: 'Centrale Solaire Industrielle',
+    category: 'Électrification',
+    mission: 'Études & Travaux',
+    description: 'Déploiement d\'une centrale solaire hybride de 500 kWc pour une unité industrielle agroalimentaire.',
+    sector: 'Industrie',
+    color: 'from-navy-700 to-navy-900',
+  },
+]
